@@ -12,7 +12,7 @@
   * Create Database - 'selfwow'
 
 ### git
-  * checkout/Clone : `git clone -b dev https://github.com/indresh1982/selfWOWServer.git`
+  * checkout/Clone : `git clone -b dev https://github.com/indresh1982/selfWOW`
   * Get latest : `git pull origin dev`
   * Stage : `git add ./`
   * Commit : `git commit -a "comments"`
@@ -24,11 +24,14 @@
 ### Build Application for dev
   * `npm run buildDev`
 
+### Dev Start Server
+  * `npm startDev`
+
 ### Build Application for prod
-  * `npm run buildDev`
+  * `npm run build`
 
 ### Start Server
   * `npm start`
 
-### URL
-  * Root: http://localhost:8080/
+### Dev URL
+  * http://localhost:8080/
