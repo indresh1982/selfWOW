@@ -24,13 +24,13 @@
 ### Build Application for dev
   * `npm run buildDev`
 
-### Dev Start Server
+### Start Server for dev
   * `npm startDev`
 
 ### Build Application for prod
   * `npm run build`
 
-### Start Server
+### Start Server for prod
   * `npm start`
 
 ### Dev URL
