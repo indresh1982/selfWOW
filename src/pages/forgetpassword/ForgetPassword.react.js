@@ -6,6 +6,12 @@ import styles from './forgetPassword.styles';
 import { Redirect } from 'react-router-dom';
 
 class Registration extends React.Component {
+  static propTypes = {
+    email: React.PropTypes.string,
+    errorMsg: React.PropTypes.string,
+    forgetSuccess: React.PropTypes.bool
+  };
+
   constructor(props, context) {
     super(props, context);
     this.state = { transitionTo: null, email: '' };
@@ -20,11 +26,11 @@ class Registration extends React.Component {
   }
 
   goToLogin() {
-    this.setState({transitionTo: '/'});
+    this.setState({ transitionTo: '/' });
   }
 
   goToRegistration() {
-    this.setState({transitionTo: '/registration'});
+    this.setState({ transitionTo: '/registration' });
   }
 
   submit() {
@@ -32,7 +38,7 @@ class Registration extends React.Component {
   }
 
   render() {
-    if(this.state.transitionTo) {
+    if (this.state.transitionTo) {
       return <Redirect to={this.state.transitionTo} />;
     }
     const failureRegExEmail = !(new RegExp('^[A-Za-z0-9+_-]+(?:\\.[A-Za-z0-9+_-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$', 'g').test(this.state.email));
@@ -40,13 +46,13 @@ class Registration extends React.Component {
     return (<div style={styles.container}>
       <h1 style={styles.title}>Forget Password</h1>
       {this.props.errorMsg && <Inlinemessage color={'#ff0000'} text={this.props.errorMsg} />}
-      {this.props.saveSuccess && <Inlinemessage color={'#00ff00'} text={'Registration is successfull.'}/>}
-      {!this.props.saveSuccess && <div>
+      {this.props.forgetSuccess && <Inlinemessage color={'#00ff00'} text={'Registration is successfull.'} />}
+      {!this.props.forgetSuccess && <div>
         <InputField
           type="text"
           name="email"
           label="Email"
-          isRequired={true}
+          isRequired
           value={this.state.email}
           maxlength={30}
           formatErrorText={(this.state.email && failureRegExEmail) ? ' is invalid.' : null}
@@ -55,12 +61,12 @@ class Registration extends React.Component {
         />
       </div>}
       <div style={styles.footer}>
-        {!this.props.saveSuccess && <div>
-          <Button text="Submit" isPrimary={true} onClick={this.submit} />
+        {!this.props.forgetSuccess && <div>
+          <Button text="Submit" isPrimary onClick={this.submit} />
         </div>}
         <div style={styles.subFooter}>
-          <Button text="Login" onClick={this.goToLogin} style={styles.button}/>
-          {!this.props.saveSuccess && <Button text="Registration" onClick={this.goToRegistration} style={styles.button} />}
+          <Button text="Login" onClick={this.goToLogin} style={styles.button} />
+          <Button text="Registration" onClick={this.goToRegistration} style={styles.button} />
         </div>
       </div>
     </div>);

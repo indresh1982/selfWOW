@@ -8,16 +8,22 @@
     "start": "node server.js",
     "startDev": "nodemon server.js",
     "build": "webpack -p --config ./webpack.config.js --progress --colors",
-    "buildDev": "webpack -d --config ./webpack.config.js --progress --colors --watch"
+    "buildDev": "webpack -d --config ./webpack.config.js --progress --colors --watch",
+    "lint": "./node_modules/.bin/eslint src server",
+    "precommit": "npm run lint"
   },
   "author": "Indresh Kumar",
   "license": "ISC",
   "devDependencies": {
     "alt": "^0.17.9",
     "babel-core": "^6.24.1",
+    "babel-eslint": "^7.1.1",
     "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "eslint": "~2.2.0",
+    "eslint-config-airbnb": "~6.0.2",
+    "eslint-plugin-react": "^4.1.0",
     "nodemon": "^1.11.0",
     "radium": "^0.18.2",
     "react": "^15.5.4",

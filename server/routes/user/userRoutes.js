@@ -1,22 +1,22 @@
-var userRepository = require('./userRepository');
-var apiFactory = require('./../../lib/apiFactory');
+const userRepository = require('./userRepository');
+const apiFactory = require('./../../lib/apiFactory');
 
-module.exports = function(options) {
-  options = options || { prefixPath: '/user/' };
-  var repo = userRepository();
+module.exports = function (params) {
+  const options = params || { prefixPath: '/user/' };
+  const repo = userRepository();
 
   return [{
-      path: options.prefixPath + 'add',
-      handler: function (req, res) {
-        apiFactory.apiRequestHandler(
-          req, res,
-          ['name', 'phone', 'email', 'password'],
-          repo.add
-        );
-      }
-    }, {
+    path: options.prefixPath + 'add',
+    handler: (req, res) => {
+      apiFactory.apiRequestHandler(
+        req, res,
+        ['name', 'phone', 'email', 'password'],
+        repo.add
+      );
+    }
+  }, {
     path: options.prefixPath + 'login',
-    handler: function (req, res) {
+    handler: (req, res) => {
       apiFactory.apiRequestHandler(
         req, res,
         ['email', 'password'],
@@ -24,32 +24,32 @@ module.exports = function(options) {
       );
     }
   }, {
-      path: options.prefixPath + 'verify',
-      handler: function (req, res) {
-        apiFactory.apiRequestHandler(
-          req, res,
-          ['phone', 'vCode'],
-          repo.verifyCode
-        );
-      }
-    }, {
-      path: options.prefixPath + 'resend',
-      handler: function (req, res) {
-        apiFactory.apiRequestHandler(
-          req, res,
-          ['phone'],
-          repo.resendCode
-        );
-      }
-    }, {
-      path: options.prefixPath + 'logout',
-      handler: function (req, res) {
-        apiFactory.apiRequestHandler(
-          req, res,
-          [],
-          repo.logout
-        );
-      }
+    path: options.prefixPath + 'verify',
+    handler: (req, res) => {
+      apiFactory.apiRequestHandler(
+        req, res,
+        ['phone', 'vCode'],
+        repo.verifyCode
+      );
     }
+  }, {
+    path: options.prefixPath + 'resend',
+    handler: (req, res) => {
+      apiFactory.apiRequestHandler(
+        req, res,
+        ['phone'],
+        repo.resendCode
+      );
+    }
+  }, {
+    path: options.prefixPath + 'logout',
+    handler: (req, res) => {
+      apiFactory.apiRequestHandler(
+        req, res,
+        [],
+        repo.logout
+      );
+    }
+  }
   ];
-}
+};

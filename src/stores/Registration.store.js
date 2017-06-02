@@ -29,7 +29,7 @@ class RegistrationStore {
   }
 
   updateStore(data) {
-    this.setState( data );
+    this.setState(data);
   }
 
   getApiError(data) {
@@ -37,7 +37,7 @@ class RegistrationStore {
   }
 
   saveRegistrationSuccess() {
-    this.setState({ errorMsg: null, saveSuccess:true });
+    this.setState({ errorMsg: null, saveSuccess: true });
   }
 }
 

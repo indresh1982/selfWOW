@@ -9,6 +9,13 @@ import styles from './login.styles';
 import { Redirect } from 'react-router-dom';
 
 class Login extends React.Component {
+  static propTypes = {
+    email: React.PropTypes.string,
+    password: React.PropTypes.string,
+    errorMsg: React.PropTypes.string,
+    loginSuccess: React.PropTypes.bool
+  };
+
   static getStores() {
     return [Store];
   }
@@ -26,7 +33,7 @@ class Login extends React.Component {
   }
 
   componentDidMount() {
-    Actions.clearStore()
+    Actions.clearStore();
   }
 
   onInputChange(value, nane) {
@@ -34,11 +41,11 @@ class Login extends React.Component {
   }
 
   goToRegistration() {
-    this.setState({transitionTo: '/registration'});
+    this.setState({ transitionTo: '/registration' });
   }
 
   goToForgetPassword() {
-    this.setState({transitionTo: '/forgetpassword'});
+    this.setState({ transitionTo: '/forgetpassword' });
   }
 
   submit() {
@@ -47,10 +54,10 @@ class Login extends React.Component {
   }
 
   render() {
-    if(this.state.transitionTo) {
+    if (this.state.transitionTo) {
       return <Redirect to={this.state.transitionTo} />;
     }
-    if(this.props.loginSuccess && this.state.loginReq) {
+    if (this.props.loginSuccess && this.state.loginReq) {
       return <Redirect to={'/notes'} />;
     }
 
@@ -64,7 +71,7 @@ class Login extends React.Component {
           type="text"
           name="email"
           label="Email"
-          isRequired={true}
+          isRequired
           value={this.props.email}
           maxlength={30}
           formatErrorText={(this.props.email && failureRegExEmail) ? ' is invalid.' : null}
@@ -77,17 +84,17 @@ class Login extends React.Component {
           label="Password"
           value={this.state.password}
           maxlength="30"
-          isRequired={true}
+          isRequired
           onValueChange={this.onInputChange}
           icon="fa-lock"
         />
       </div>
       <div style={styles.footer}>
         <div>
-          <Button text="Submit" isPrimary={true} onClick={this.submit} />
+          <Button text="Submit" isPrimary onClick={this.submit} />
         </div>
         <div style={styles.subFooter}>
-          <Button text="Registration" onClick={this.goToRegistration} style={styles.button}/>
+          <Button text="Registration" onClick={this.goToRegistration} style={styles.button} />
           <Button text="Forget Password" onClick={this.goToForgetPassword} style={styles.button} />
         </div>
       </div>

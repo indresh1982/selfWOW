@@ -9,6 +9,16 @@ import styles from './registration.styles';
 import { Redirect } from 'react-router-dom';
 
 class Registration extends React.Component {
+  static propTypes = {
+    saveSuccess: React.PropTypes.bool,
+    name: React.PropTypes.string,
+    phone: React.PropTypes.string,
+    email: React.PropTypes.string,
+    password: React.PropTypes.string,
+    password2: React.PropTypes.string,
+    errorMsg: React.PropTypes.string
+  };
+
   static getStores() {
     return [Store];
   }
@@ -26,7 +36,7 @@ class Registration extends React.Component {
   }
 
   componentDidMount() {
-    Actions.clearStore()
+    Actions.clearStore();
   }
 
   onInputChange(value, nane) {
@@ -34,11 +44,11 @@ class Registration extends React.Component {
   }
 
   goToLogin() {
-    this.setState({transitionTo: '/'});
+    this.setState({ transitionTo: '/' });
   }
 
   goToForgetPassword() {
-    this.setState({transitionTo: '/forgetpassword'});
+    this.setState({ transitionTo: '/forgetpassword' });
   }
 
   submit() {
@@ -46,7 +56,7 @@ class Registration extends React.Component {
   }
 
   render() {
-    if(this.state.transitionTo) {
+    if (this.state.transitionTo) {
       return <Redirect to={this.state.transitionTo} />;
     }
     const failureRegExPhone = !(new RegExp('^((\\d{10})|(\\d{3}-\\d{3}-\\d{4}))$', 'g').test(this.props.phone));
@@ -56,7 +66,7 @@ class Registration extends React.Component {
     return (<div style={styles.container}>
       <h1 style={styles.title}>Registration</h1>
       {this.props.errorMsg && <Inlinemessage color={'#ff0000'} text={this.props.errorMsg} />}
-      {this.props.saveSuccess && <Inlinemessage color={'#00ff00'} text={'Registration is successfull.'}/>}
+      {this.props.saveSuccess && <Inlinemessage color={'#00ff00'} text={'Registration is successfull.'} />}
       {!this.props.saveSuccess && <div>
         <InputField
           type="text"
@@ -64,7 +74,7 @@ class Registration extends React.Component {
           label="Name"
           value={this.props.name}
           maxlength="30"
-          isRequired={true}
+          isRequired
           formatErrorText={failureRegExName ? ' is invalid.' : null}
           onValueChange={this.onInputChange}
           icon="fa-user"
@@ -75,7 +85,7 @@ class Registration extends React.Component {
           label="Phone"
           value={this.props.phone}
           maxlength="12"
-          isRequired={true}
+          isRequired
           formatErrorText={(this.props.phone && failureRegExPhone) ? ' is invalid.' : null}
           onValueChange={this.onInputChange}
           icon="fa-phone"
@@ -84,7 +94,7 @@ class Registration extends React.Component {
           type="text"
           name="email"
           label="Email"
-          isRequired={true}
+          isRequired
           value={this.props.email}
           maxlength={30}
           formatErrorText={(this.props.email && failureRegExEmail) ? ' is invalid.' : null}
@@ -97,7 +107,7 @@ class Registration extends React.Component {
           label="Password"
           value={this.state.password}
           maxlength="30"
-          isRequired={true}
+          isRequired
           onValueChange={this.onInputChange}
           icon="fa-lock"
         />
@@ -107,17 +117,17 @@ class Registration extends React.Component {
           label="Re-type Password"
           value={this.props.password2}
           maxlength="30"
-          isRequired={true}
+          isRequired
           onValueChange={this.onInputChange}
           icon="fa-lock"
         />
       </div>}
       <div style={styles.footer}>
         {!this.props.saveSuccess && <div>
-          <Button text="Submit" isPrimary={true} onClick={this.submit} />
+          <Button text="Submit" isPrimary onClick={this.submit} />
         </div>}
         <div style={styles.subFooter}>
-          <Button text="Login" onClick={this.goToLogin} style={styles.button}/>
+          <Button text="Login" onClick={this.goToLogin} style={styles.button} />
           {!this.props.saveSuccess && <Button text="Forget Password" onClick={this.goToForgetPassword} style={styles.button} />}
         </div>
       </div>
@@ -125,3 +135,4 @@ class Registration extends React.Component {
   }
 }
 export default connectToStores(Registration);
+

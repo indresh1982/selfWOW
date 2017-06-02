@@ -1,6 +1,6 @@
 module.exports = {
-  send: function (to, body, callback) {
-    console.log('Sms send not done: to - ', to, ', body - ', body );
-    callback(null, {status: 'success'});
+  send: (to, body, callback) => {
+    console.log('Sms send not done: to - ', to, ', body - ', body); // eslint-disable-line no-console
+    callback(null, { status: 'success' });
   }
 };

@@ -23,7 +23,7 @@ class LoginStore {
   }
 
   updateStore(data) {
-    this.setState( data );
+    this.setState(data);
   }
 
   getApiError(data) {
@@ -31,7 +31,7 @@ class LoginStore {
   }
 
   loginSuccess() {
-    this.setState({ errorMsg: null, loginSuccess:true, password: '', email: '' });
+    this.setState({ errorMsg: null, loginSuccess: true, password: '', email: '' });
   }
 }
 

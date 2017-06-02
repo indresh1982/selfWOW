@@ -5,7 +5,7 @@ import Radium from 'radium';
 class InlineMessage extends React.Component {
   render() {
     return (
-      <div style={{color: this.props.color, padding: '10px 0 20px', fontSize: 25}}>
+      <div style={{ color: this.props.color, padding: '10px 0 20px', fontSize: 25 }}>
         {this.props.text}
       </div>
     );
@@ -13,7 +13,7 @@ class InlineMessage extends React.Component {
 }
 
 InlineMessage.defaultProps = {
-  text: '',
+  text: ''
 };
 
 InlineMessage.propTypes = {

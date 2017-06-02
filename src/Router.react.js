@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import AINotes from './pages/ainotes/AINotes.react';
 import Message from './pages/message/Message.react';
 import Registration from './pages/registration/Registration.react';

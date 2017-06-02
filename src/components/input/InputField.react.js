@@ -10,18 +10,14 @@ class InputField extends React.Component {
     this._onChange = this._onChange.bind(this);
   }
 
-  _onChange(e) {
-    if (this.props.onValueChange) {
-      this.props.onValueChange(e.target.value, e.target.name);
-    }
-  }
-
   getTextBox() {
     let icon;
-    let inputErrorStyle = {};
+
+    /* let inputErrorStyle = {};
     if (this.state.requiredError || this.state.formatError) {
       inputErrorStyle = { border: '1px solid #ff0000' };
-    }
+    } */
+
     if (this.props.icon) {
       icon = (<span style={styles.faIconInput} dangerouslySetInnerHTML = {{ __html: IconConstant[this.props.icon] }} ></span>);
     }
@@ -47,7 +43,6 @@ class InputField extends React.Component {
         formatError={this.state.formatError}
         requiredErrorText={this.props.requiredErrorText}
         formatErrorText={this.props.formatErrorText}
-        labelClass={this.props.labelClass}
       >
         {inputTextBox}
         {icon}
@@ -55,7 +50,11 @@ class InputField extends React.Component {
     );
   }
 
-
+  _onChange(e) {
+    if (this.props.onValueChange) {
+      this.props.onValueChange(e.target.value, e.target.name);
+    }
+  }
 
   render() {
     if (this.props.type === 'text' || this.props.type === 'password') {
@@ -70,6 +69,20 @@ InputField.defaultProps = {
   placeholder: '',
   maxlength: 0,
   isRequired: false
+};
+
+InputField.propTypes = {
+  type: React.PropTypes.string,
+  placeholder: React.PropTypes.string,
+  maxlength: React.PropTypes.number,
+  isRequired: React.PropTypes.bool,
+  name: React.PropTypes.string,
+  icon: React.PropTypes.string,
+  requiredErrorText: React.PropTypes.string,
+  label: React.PropTypes.string,
+  onValueChange: React.PropTypes.func,
+  value: React.PropTypes.string,
+  formatErrorText: React.PropTypes.string
 };
 
 export default InputField;
