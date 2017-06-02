@@ -7,6 +7,10 @@ var app = express();
 var apiPublic = express.Router();
 var apiProtected = express.Router();
 
+var fs = require('fs');
+var path = require('path');
+const html = fs.readFileSync(path.resolve(__dirname, './public/base.html')).toString();
+
 app.set('port', process.env.PORT||config.port||8080);
 
 //static content and web app
@@ -52,5 +56,19 @@ apiProtected.use('/test', function (req, res) {
 });
 
 // routesFactory.setRoutes(apiProtected, require('./routes/user/userRoutes')());
+
+//root app html
+app.use('/', function (req, res) {
+  let javascript = `<script type='text/javascript'>var appRouterPath = 'test/path'; </script>`;
+  const markup = html.replace('JAVASCRIPT', javascript);
+  res.set('Content-Type', 'text/html');
+  res.status(200).end(markup);
+});
+
+//redirect all invalid path to root
+app.get('/*', function(req, res) {
+  res.redirect('/')
+});
+
 
 module.exports = app;

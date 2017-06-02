@@ -83,7 +83,7 @@ class Login extends React.Component {
           name="password"
           label="Password"
           value={this.state.password}
-          maxlength="30"
+          maxlength={30}
           isRequired
           onValueChange={this.onInputChange}
           icon="fa-lock"

@@ -73,7 +73,7 @@ class Registration extends React.Component {
           name="name"
           label="Name"
           value={this.props.name}
-          maxlength="30"
+          maxlength={30}
           isRequired
           formatErrorText={failureRegExName ? ' is invalid.' : null}
           onValueChange={this.onInputChange}
@@ -84,7 +84,7 @@ class Registration extends React.Component {
           name="phone"
           label="Phone"
           value={this.props.phone}
-          maxlength="12"
+          maxlength={12}
           isRequired
           formatErrorText={(this.props.phone && failureRegExPhone) ? ' is invalid.' : null}
           onValueChange={this.onInputChange}
@@ -106,7 +106,7 @@ class Registration extends React.Component {
           name="password"
           label="Password"
           value={this.state.password}
-          maxlength="30"
+          maxlength={30}
           isRequired
           onValueChange={this.onInputChange}
           icon="fa-lock"
@@ -116,7 +116,7 @@ class Registration extends React.Component {
           name="password2"
           label="Re-type Password"
           value={this.props.password2}
-          maxlength="30"
+          maxlength={30}
           isRequired
           onValueChange={this.onInputChange}
           icon="fa-lock"
