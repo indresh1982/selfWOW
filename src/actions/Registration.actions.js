@@ -13,7 +13,7 @@ class RegistrationActions {
         if (err) {
           this.actions.getApiError(res.statusText);
         }
-        if (res.ok) {
+        if(res.ok) {
           const resultData = JSON.parse(res.text);
           if (resultData.status) {
             this.actions.saveRegistrationSuccess();
