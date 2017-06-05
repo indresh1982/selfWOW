@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AINotes from './pages/ainotes/AINotes.react';
+import NotFound from './pages/notfound/NotFound.react';
 import Message from './pages/message/Message.react';
 import Registration from './pages/registration/Registration.react';
 import Login from './pages/login/Login.react';
@@ -11,13 +12,15 @@ class AppRouter extends React.Component {
     return (
       <div>
         <Router>
-          <div>
+          <Switch>
             <Route exact path="/" component={Login} />
             <Route path="/registration" component={Registration} />
             <Route path="/forgetpassword" component={ForgetPassword} />
             <Route path="/notes" component={AINotes} />
             <Route path="/message" component={Message} />
-          </div>
+            <Route path="/message" component={Message} />
+            <Route component={NotFound} />
+          </Switch>
         </Router>
       </div>
     );

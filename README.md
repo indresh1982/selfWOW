@@ -25,7 +25,7 @@
   * `npm run buildDev`
 
 ### Start Server for dev
-  * `npm startDev`
+  * `npm run startDev`
 
 ### Build Application for prod
   * `npm run build`
