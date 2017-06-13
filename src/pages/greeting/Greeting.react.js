@@ -1,13 +1,13 @@
 import React from 'react';
 import AppNav from './../../components/appnav/AppNav.react';
 
-class AINites extends React.Component {
+class Greeting extends React.Component {
   render() {
     return (
-      <AppNav title="AI Notes">
-        <h1>AI Notes</h1>
+      <AppNav title="Greeting">
+        <h1>Greeting</h1>
       </AppNav>);
   }
 }
 
-export default AINites;
+export default Greeting;

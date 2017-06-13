@@ -1,28 +1,54 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import connectToStores from 'alt/utils/connectToStores';
+import Radium from 'radium';
 import styles from './appNav.styles';
+import Store from '../../stores/AppNav.store';
+import Actions from '../../actions/AppNav.actions';
+import BottomNav from './BottomNav';
+import LeftNav from './LeftNav';
+import IconConstant from './../../styles/iconconstant';
 
 class AppNave extends React.Component {
   static propTypes = {
-    children: React.PropTypes.any
+    children: React.PropTypes.any,
+    isOpen: React.PropTypes.bool,
+    title: React.PropTypes.any
   };
+
+  static getStores() {
+    return [Store];
+  }
+
+  static getPropsFromStores() {
+    return Store.getState();
+  }
+
+  openNav() {
+    Actions.updateStore({ isOpen: !this.props.isOpen });
+  }
 
   render() {
     return (
       <div>
-        <div style={styles.container}>{this.props.children}</div>
-        <div style={styles.navContainer}>
-          <div style={{ textAlign: 'center', borderRadius: 5 }}>
-            <ul style={{ display: 'inline-block', margin: 0, padding: 0 }}>
-              <li style={styles.link}><Link to={'/message'}>Message</Link></li>
-              <li style={styles.link}><Link to={'/notes'}>Notes</Link></li>
-              <li style={styles.link}><Link to={'/'}>Logout</Link></li>
-            </ul>
+        <div style={styles.container}>
+
+          <div style={[styles.leftNav, this.props.isOpen && styles.leftNavOpen]}>
+            <LeftNav />
           </div>
+          <div style={[styles.contents, this.props.isOpen && styles.closeContents]} onClick={this.props.isOpen && this.openNav.bind(this)}>
+            <div style={styles.title}>
+              <span style={styles.faIcon} dangerouslySetInnerHTML = {{ __html: IconConstant['fa-bars'] }} onClick={!this.props.isOpen && this.openNav.bind(this)} />
+              <h1 style={styles.titleText}>{this.props.title}</h1>
+            </div>
+            <div style={styles.contentsBody}>{this.props.children}</div>
+          </div>
+        </div>
+        <div style={styles.navContainer}>
+          <BottomNav />
         </div>
       </div>
     );
   }
 }
 
-export default AppNave;
+export default connectToStores(Radium(AppNave));
