@@ -13,3 +13,15 @@ npm-debug.log
 .DS_Store
 .env
 
+
+# Mac
+.DS_Store
+
+
+# mobile
+mobileapp/hooks
+mobileapp/platforms
+mobileapp/plugins
+mobileapp/res
+mobileapp/config.xml
+mobileapp/package.json

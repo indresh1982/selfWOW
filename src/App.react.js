@@ -1,4 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import AppRouter from './Router.react';
-ReactDOM.render(<AppRouter />, document.getElementById('app'));
+const startApp = () => {
+  if (isAppReady) {
+    ReactDOM.render(<AppRouter />, document.getElementById('app'));
+  } else {
+    setTimeout(() => { startApp(); }, 500);
+  }
+};
+startApp();

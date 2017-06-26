@@ -2,7 +2,7 @@ export default {
   container: {
     backgroundColor: '#fff',
     maxWidth: '800px',
-    margin: '20px auto 72px',
+    margin: '30px auto 72px',
     borderRadius: 5,
     overflow: 'hidden'
   },

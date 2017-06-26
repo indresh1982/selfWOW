@@ -18,6 +18,13 @@ console.log('Path client: ', __dirname + '/public');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json({limit: config.bodyParser.uploadLimit}));
 
+//Cross Domain Allow
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 //database connection
 app.use(mongodb.mongoHandler);
 
@@ -59,7 +66,7 @@ apiProtected.use('/test', function (req, res) {
 
 //root app html
 app.use('/', function (req, res) {
-  let javascript = `<script type='text/javascript'>var appRouterPath = 'test/path'; </script>`;
+  let javascript = `<script type='text/javascript'>var appRouterPath = 'test/path'; var isAppReady = true; var apiServerPath = 'http://localhost:8080'; </script>`;
   const markup = html.replace('JAVASCRIPT', javascript);
   res.set('Content-Type', 'text/html');
   res.status(200).end(markup);

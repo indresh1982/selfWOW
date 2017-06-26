@@ -3,7 +3,7 @@ export default {
     backgroundColor: '#fff',
     maxWidth: '500px',
     padding: 20,
-    margin: '20px auto',
+    margin: '30px auto',
     borderRadius: 5
   },
   title: {
@@ -19,6 +19,6 @@ export default {
     padding: '20px 0 0'
   },
   button: {
-    margin: '0 10px'
+    margin: '0 10px 10px'
   }
 };

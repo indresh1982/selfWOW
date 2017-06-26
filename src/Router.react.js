@@ -28,6 +28,7 @@ class AppRouter extends React.Component {
             <Route path="/chats" component={Chats} />
             <Route path="/setting" component={Setting} />
             <Route path="/logout" component={Logout} />
+            <Route path="/index.html" component={Login} />
             <Route component={NotFound} />
           </Switch>
         </Router>

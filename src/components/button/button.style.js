@@ -156,7 +156,7 @@ export default {
     color: '#1b8099',
     textTransform: 'none',
     backgroundColor: 'transparent',
-    padding: '8px 12px',
+    padding: '8px 10px',
     ':hover': {
       color: '#0f596b',
       backgroundColor: 'transparent'
@@ -176,7 +176,7 @@ export default {
     color: '#bbbbbb',
     textTransform: 'none',
     backgroundColor: 'transparent',
-    padding: '8px 12px',
+    padding: '8px 10px',
     ':hover': {
       color: '#bbbbbb',
       backgroundColor: 'transparent'
@@ -282,7 +282,7 @@ export default {
    },
    */
   compact: {
-    padding: '5px 12px 5px 12px'
+    padding: '5px 10px 5px 10px'
   },
   iconLeft: {
     fontSize: '16px',

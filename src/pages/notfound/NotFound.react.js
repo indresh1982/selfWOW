@@ -14,6 +14,7 @@ class NotFound extends React.Component {
     super(props, context);
     this.state = { transitionTo: null };
     this.goToLogin = this.goToLogin.bind(this);
+    this.goToRegistration = this.goToRegistration.bind(this);
   }
 
   goToLogin() {

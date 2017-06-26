@@ -2,6 +2,10 @@ import React from 'react';
 import Label from './../label/Label.react';
 import styles from './inputField.styles';
 import IconConstant from './../../styles/iconconstant';
+import UserIcon from './../../styles/svg/user.svg';
+import MobileIcon from './../../styles/svg/mobile-phone.svg';
+import LockIcon from './../../styles/svg/lock.svg';
+import EnvelopeIcon from './../../styles/svg/envelope.svg';
 
 class InputField extends React.Component {
   constructor(props, context) {
@@ -18,7 +22,15 @@ class InputField extends React.Component {
       inputErrorStyle = { border: '1px solid #ff0000' };
     } */
 
-    if (this.props.icon) {
+    if (this.props.icon === 'user') {
+      icon = <UserIcon />;
+    } else if (this.props.icon === 'mobile') {
+      icon = <MobileIcon style={styles.faIconInput} />;
+    } else if (this.props.icon === 'envelope') {
+      icon = <EnvelopeIcon style={styles.faIconInput} />;
+    } else if (this.props.icon === 'lock') {
+      icon = <LockIcon style={styles.faIconInput} />;
+    } else if (this.props.icon) {
       icon = (<span style={styles.faIconInput} dangerouslySetInnerHTML = {{ __html: IconConstant[this.props.icon] }} ></span>);
     }
 
