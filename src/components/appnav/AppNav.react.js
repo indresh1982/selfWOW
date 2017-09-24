@@ -37,7 +37,8 @@ class AppNave extends React.Component {
           </div>
           <div style={[styles.contents, this.props.isOpen && styles.closeContents]} onClick={this.props.isOpen && this.openNav.bind(this)}>
             <div style={styles.title}>
-              <span style={styles.faIcon} dangerouslySetInnerHTML = {{ __html: IconConstant['fa-bars'] }} onClick={!this.props.isOpen && this.openNav.bind(this)} />
+              <span style={styles.faIcon} onClick={!this.props.isOpen && this.openNav.bind(this)}><i className="fa fa-bars"></i></span>
+
               <h1 style={styles.titleText}>{this.props.title}</h1>
             </div>
             <div style={styles.contentsBody}>{this.props.children}</div>
