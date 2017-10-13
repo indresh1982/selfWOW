@@ -15,27 +15,23 @@ class Registration extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = { transitionTo: null, email: '' };
-    this.onInputChange = this.onInputChange.bind(this);
-    this.submit = this.submit.bind(this);
-    this.goToLogin = this.goToLogin.bind(this);
-    this.goToRegistration = this.goToRegistration.bind(this);
   }
 
-  onInputChange(value, nane) {
+  onInputChange = (value, nane) => {
     this.setState({ [nane]: value });
-  }
+  };
 
-  goToLogin() {
+  goToLogin = () => {
     this.setState({ transitionTo: '/' });
-  }
+  };
 
-  goToRegistration() {
+  goToRegistration = () => {
     this.setState({ transitionTo: '/registration' });
-  }
+  };
 
-  submit() {
+  submit = () => {
 
-  }
+  };
 
   render() {
     if (this.state.transitionTo) {
