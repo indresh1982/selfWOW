@@ -27,31 +27,28 @@ class Login extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = { transitionTo: null, loginReq: false };
-    this.submit = this.submit.bind(this);
-    this.goToRegistration = this.goToRegistration.bind(this);
-    this.goToForgetPassword = this.goToForgetPassword.bind(this);
   }
 
   componentDidMount() {
     Actions.clearStore();
   }
 
-  onInputChange(value, nane) {
+  onInputChange = (value, nane) => {
     Actions.updateStore({ [nane]: value });
-  }
+  };
 
-  goToRegistration() {
+  goToRegistration = () => {
     this.setState({ transitionTo: '/registration' });
-  }
+  };
 
-  goToForgetPassword() {
+  goToForgetPassword = () => {
     this.setState({ transitionTo: '/forgetpassword' });
-  }
+  };
 
-  submit() {
+  submit = () => {
     this.setState({ loginReq: true });
     Actions.login(this.props);
-  }
+  };
 
   render() {
     if (this.state.transitionTo) {

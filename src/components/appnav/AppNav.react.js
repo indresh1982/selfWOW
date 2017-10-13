@@ -6,7 +6,6 @@ import Store from '../../stores/AppNav.store';
 import Actions from '../../actions/AppNav.actions';
 import BottomNav from './BottomNav';
 import LeftNav from './LeftNav';
-import IconConstant from './../../styles/iconconstant';
 
 class AppNave extends React.Component {
   static propTypes = {
@@ -23,9 +22,9 @@ class AppNave extends React.Component {
     return Store.getState();
   }
 
-  openNav() {
+  openNav = () => {
     Actions.updateStore({ isOpen: !this.props.isOpen });
-  }
+  };
 
   render() {
     return (
@@ -35,9 +34,9 @@ class AppNave extends React.Component {
           <div style={[styles.leftNav, this.props.isOpen && styles.leftNavOpen]}>
             <LeftNav />
           </div>
-          <div style={[styles.contents, this.props.isOpen && styles.closeContents]} onClick={this.props.isOpen && this.openNav.bind(this)}>
+          <div style={[styles.contents, this.props.isOpen && styles.closeContents]} onClick={this.props.isOpen && this.openNav}>
             <div style={styles.title}>
-              <span style={styles.faIcon} onClick={!this.props.isOpen && this.openNav.bind(this)}><i className="fa fa-bars"></i></span>
+              <span style={styles.faIcon} onClick={!this.props.isOpen && this.openNav}><i className="fa fa-bars"></i></span>
 
               <h1 style={styles.titleText}>{this.props.title}</h1>
             </div>
