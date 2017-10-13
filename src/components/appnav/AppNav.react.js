@@ -6,7 +6,6 @@ import Store from '../../stores/AppNav.store';
 import Actions from '../../actions/AppNav.actions';
 import BottomNav from './BottomNav';
 import LeftNav from './LeftNav';
-import IconConstant from './../../styles/iconconstant';
 
 class AppNave extends React.Component {
   static propTypes = {

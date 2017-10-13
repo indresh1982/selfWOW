@@ -13,16 +13,15 @@ class Logout extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = { transitionTo: null };
-    this.goToLogin = this.goToLogin.bind(this);
   }
 
-  goToLogin() {
+  goToLogin = () => {
     this.setState({ transitionTo: '/' });
-  }
+  };
 
-  goToRegistration() {
+  goToRegistration = () => {
     this.setState({ transitionTo: '/registration' });
-  }
+  };
 
   render() {
     if (this.state.transitionTo) {

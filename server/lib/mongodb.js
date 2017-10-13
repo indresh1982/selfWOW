@@ -5,7 +5,7 @@ const config = require('./../config');
 const Singleton = {
   // mongoHandler
   mongoHandler: (req, res, next) => {
-    if(!this.db) {
+    if (!this.db) {
       MongoClient.connect(config.mongo.uri, (err, db) => {
         if (!err) {
           this.db = db;
@@ -16,7 +16,7 @@ const Singleton = {
         next();
       });
     } else {
-      req.db = this.db;
+      req.db = this.db; // eslint-disable-line no-param-reassign
       next();
     }
   }

@@ -1,5 +1,5 @@
 import request from 'superagent';
-const apiHost = apiServerPath || 'http://localhost:8080';
+const apiHost = apiServerPath || 'http://localhost:8080'; // eslint-disable-line no-undef
 
 export default {
   setupGetRequest(url) {
