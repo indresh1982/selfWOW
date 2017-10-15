@@ -24,6 +24,7 @@ class LoginStore {
 
   updateStore(data) {
     this.setState(data);
+    console.log("test");
   }
 
   getApiError(data) {
