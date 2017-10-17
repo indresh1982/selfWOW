@@ -19,7 +19,9 @@ class ContactsActions {
             { name: 'John', mobile: '204565785' }
         ];
 
-        this.actions.getContacts(mockData);
+        setTimeout(() =>{ this.actions.getContacts(mockData); }, 0);
+
+        
 
     }
 

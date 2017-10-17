@@ -9,13 +9,6 @@ import styles from './Contacts.styles';
 
 class Contacts extends React.Component {
 
-  items = [
-    { name: 'Bobby KC', mobile: '4545454545' },
-    { name: 'Indresh Kumar', mobile: '155554545' },
-    { name: 'Luke', mobile: '755554545' },
-    { name: 'John', mobile: '204565785' }
-];
-
     static getStores() {
         return [Store];
     }
@@ -39,7 +32,7 @@ class Contacts extends React.Component {
     render() {
         console.log(this.props);
 
-        var listItems = this.items.map(function (item) {
+        var listItems = this.props.Contacts.map(function (item) {
             return (
                 <AccordionItem key={item.name} header={item.name}></AccordionItem>
             );
