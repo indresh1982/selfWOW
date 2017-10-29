@@ -2,9 +2,15 @@ import utils from './ActionUtils';
 import alt from './../altInstance';
 
 class LoginActions {
-  updateStore(data) {
-    this.dispatch(data);
+  constructor() {
+    this.generateActions(
+      'updateStore',
+      'clearStore',
+      'loginSuccess',
+      'getApiError'
+    );
   }
+
   login({ email, password }) {
     utils.setupPostRequest('/api/public/user/login')
       .send(JSON.stringify({ email, password }))
@@ -22,18 +28,6 @@ class LoginActions {
           console.log(resultData); // eslint-disable-line no-console
         }
       });
-  }
-
-  clearStore() {
-    this.dispatch();
-  }
-
-  loginSuccess() {
-    this.dispatch();
-  }
-
-  getApiError(data) {
-    this.dispatch(data);
   }
 }
 
