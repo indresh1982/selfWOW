@@ -19,7 +19,7 @@ export default {
   },
   link: {
     float: 'left',
-    padding: '15px 10px',
+    padding: '5px 12px',
     listStyleType: 'none'
   },
   leftLink: {
@@ -79,6 +79,25 @@ export default {
     fontSize: 20,
     float: 'left',
     lineHeight: '35px'
+  },
+  navLink: {
+    textDecoration: 'none',
+    outline: 'none',
+    fontSize: 12,
+    color: '#737373',
+    ':hover': {
+      color: '#DD4B39'
+    }
+  },
+  navLinkActive: {
+    color: '#2077B6',
+    ':hover': {
+      color: '#2077B6'
+    }
+  },
+  navLinkBIcon: {
+    fontSize: 22,
+    display: 'block',
+    clear: 'both'
   }
-
 };

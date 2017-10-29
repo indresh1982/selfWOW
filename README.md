@@ -21,6 +21,9 @@
 ### NPM Scripts
   * `npm install`
 
+### Start MongoDB
+  * `C:\Program Files\MongoDB\Server\3.2\bin\mongod` Default windows path
+
 ### Build Application for dev
   * `npm run buildDev`
 
